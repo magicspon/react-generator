@@ -1,18 +1,34 @@
-import React from 'react';
+import React from 'react'
+import { 
+  array, 
+  object,  
+  bool,  
+  func,  
+  number,  
+  string,  
+  symbol,  
+  node,  
+  element,
+  shape
+} from 'prop-types'
 {{#if connectedComponent}}
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+{{/if}}
+{{#if cssModules}}
+import styles from './{{ properCase name }}.module.css'
 {{/if}}
 
 const {{ properCase name }} = () => {
   return (
     <div>
+      Hello {{ properCase name }}!
     </div>
-  );
+  )
 }
 
-{{ properCase name }}.propTypes = {
-};
+{{ properCase name }}.defaultProps = {}
+{{ properCase name }}.propTypes = {}
 
 {{#if connectedComponent}}
 const mapState = (state) => ({
@@ -22,7 +38,7 @@ const mapDispatch = (dispatch) => ({
   // actions: bindActionCreators(yourActions, dispatch)
 });
 
-export default connect(mapState, mapDispatch)({{ properCase name }});
+export default connect(mapState, mapDispatch)({{ properCase name }})
 {{else}}
-export default {{ properCase name }};
+export default {{ properCase name }}
 {{/if}}

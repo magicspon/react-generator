@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import { 
   array, 
   object,  
@@ -10,48 +10,48 @@ import {
   node,  
   element,
   shape
-} from 'prop-types';
+} from 'prop-types'
 {{#if connectedComponent}}
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
 {{/if}}
 {{#if cssModules}}
 import styles from './{{ properCase name }}.module.css'
 {{/if}}
 
 class {{ properCase name }} extends Component {
-  state = {};
+  state = {}
 
   render() {
     return (
       <div>
+        Hello {{ properCase name }}!
       </div>
-    );
+    )
   }
 }
 
 {{#if connectedComponent}}
-const { object } = PropTypes;
 
-{{ properCase name }}.defaultProps = {};
+{{ properCase name }}.defaultProps = {}
 
 {{ properCase name }}.propTypes = {
   actions: object.isRequired
-};
+}
 
 const mapState = (state) => ({
-});
+})
 
 const mapDispatch = (dispatch) => ({
   // actions: bindActionCreators(yourActions, dispatch)
-});
+})
 
-export default connect(mapState, mapDispatch)({{ properCase name }});
+export default connect(mapState, mapDispatch)({{ properCase name }})
 {{else}}
 
-{{ properCase name }}.defaultProps = {};
+{{ properCase name }}.defaultProps = {}
 
-{{ properCase name }}.propTypes = {};
+{{ properCase name }}.propTypes = {}
 
-export default {{ properCase name }};
+export default {{ properCase name }}
 {{/if}}
