@@ -1,15 +1,26 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import { 
+  array, 
+  object,  
+  bool,  
+  func,  
+  number,  
+  string,  
+  symbol,  
+  node,  
+  element,
+  shape
+} from 'prop-types';
 {{#if connectedComponent}}
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 {{/if}}
+{{#if cssModules}}
+import styles from './{{ properCase name }}.module.css'
+{{/if}}
 
 class {{ properCase name }} extends Component {
-  constructor() {
-    super();
-
-    this.state = {};
-  }
+  state = {};
 
   render() {
     return (
@@ -21,6 +32,8 @@ class {{ properCase name }} extends Component {
 
 {{#if connectedComponent}}
 const { object } = PropTypes;
+
+{{ properCase name }}.defaultProps = {};
 
 {{ properCase name }}.propTypes = {
   actions: object.isRequired
@@ -35,8 +48,10 @@ const mapDispatch = (dispatch) => ({
 
 export default connect(mapState, mapDispatch)({{ properCase name }});
 {{else}}
-{{ properCase name }}.propTypes = {
-};
+
+{{ properCase name }}.defaultProps = {};
+
+{{ properCase name }}.propTypes = {};
 
 export default {{ properCase name }};
 {{/if}}

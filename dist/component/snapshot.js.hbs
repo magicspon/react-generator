@@ -1,0 +1,14 @@
+import React from 'react'
+import { render } from 'react-testing-library'
+import {{ properCase name }} from './{{ properCase name }}'
+
+describe('{{ properCase name }}', () => {
+	/**
+	 * snapshot test
+	 */
+
+  it('{{ properCase name }} renders correctly', () => {
+    const tree = render(<{{ properCase name }} />)
+    expect(tree).toMatchSnapshot()
+  });
+})
